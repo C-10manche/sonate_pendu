@@ -3,6 +3,13 @@
 {% block title %}Accueil | Jeu du pendu{% endblock %}
 
 {% block content %}
-  <p>Contenu page d'accueil</p>
-  <a href="/play" name="Jouer">Jouer</a>
+<h2>
+  <form action="/play" method="post">
+    <label for = "playername">Nom du joueur :</label>    
+    <br>
+    <input type="text" id="playername" name="playername" placeholder="Henry de Skalitz" required oninvalid="this.setCustomValidity('Ecrivez votre nom')" oninput="this.setCustomValidity('')"/>
+    <br>
+    <button type="submit">Démarrer</button>
+  </form>
+</h2>
 {% endblock %}
