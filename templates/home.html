@@ -1,15 +1,15 @@
 {% extends 'layout.html' %}
 
-{% block title %}Accueil | Jeu du pendu{% endblock %}
+{% block title %}Accueil{% endblock %}
 
 {% block content %}
-<h2>
-  <form action="/play" method="post">
-    <label for = "playername">Nom du joueur :</label>    
-    <br>
-    <input type="text" id="playername" name="playername" placeholder="Henry de Skalitz" required oninvalid="this.setCustomValidity('Ecrivez votre nom')" oninput="this.setCustomValidity('')"/>
-    <br>
-    <button type="submit">Démarrer</button>
+  <form action="/" method="post">
+    <h1>Accueil</h1>
+    <div class="box">
+      <br><br>
+      <input type="text" id="playername" name="playername" placeholder="Entrez votre nom ici" required oninvalid="this.setCustomValidity('Ecrivez votre nom')" oninput="this.setCustomValidity('')"/>
+      <br><br>
+      <button type="submit">Démarrer</button>
+    </div>
   </form>
-</h2>
 {% endblock %}

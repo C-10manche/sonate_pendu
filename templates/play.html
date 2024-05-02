@@ -3,7 +3,37 @@
 {% block title %}Jeu du Pendu{% endblock %}
 
 {% block content %}
-    <body> Bonne chance {{playername}}
-    <p>Contenu du jeu</p>
-    <a href="/" name="Retour">Retour</a>
+    <h2>
+        <div>{{result}}</div>
+        <div>Mot à deviner : <span class="red">{{word_to_guess}}</span></div>
+        <div>Vies : <span class="red">{{lifepoint}}</span></div>
+    </h2>
+    <div>
+        {% if lifepoint == 5 %}
+            <img class="pendu" src="/static/images/5lp.png">
+        {% elif lifepoint == 4 %}
+            <img class="pendu" src="/static/images/4lp.png">
+        {% elif lifepoint == 3 %}
+            <img class="pendu" src="/static/images/3lp.png">
+        {% elif lifepoint == 2 %}
+            <img class="pendu" src="/static/images/2lp.jpg">
+        {% elif lifepoint == 1 %}
+            <img class="pendu" src="/static/images/1lp.png">
+        {% endif %}
+    </div>
+    <br>
+    <h2>{{indice}}</h2>
+    <br>  
+    <div class="box">
+        <form action="/play" method="post">
+                {% for letter in 'abcdefghijklmnopqrstuvwxyz' %}
+                    <button type="submit" name="playerguess" value="{{ letter }}">{{ letter.upper() }}</button>
+                    {% if loop.index % 6 == 0 %}
+                        <br>
+                    {% endif %}
+                {% endfor %}
+        </form>
+        <form action="/" method="get"><button type="submit">Acceuil</button></form>
+        <form action="/play" method="get"><button type="submit">Rejouer</button></form>
+    </div>
 {% endblock %}
