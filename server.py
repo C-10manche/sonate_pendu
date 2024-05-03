@@ -31,7 +31,7 @@ def reset_game():
     lifepoint = 5
     word_to_guess = get_random_word()
     indice = "_" * len(word_to_guess)
-    result = "Partie de " + playername
+    result = ""
 
 app = Flask(__name__)
 @app.route("/", methods=["GET","POST"])
@@ -40,7 +40,7 @@ def home():
     if request.method == "POST":
         playername = request.form["playername"]
         reset_game()
-        return render_template("play.html", result = result, lifepoint = lifepoint, indice = indice, word_to_guess = word_to_guess) 
+        return render_template("play.html", playername = playername, result = result, lifepoint = lifepoint, indice = ' '.join(indice), word_to_guess = ' '.join(word_to_guess)) 
     
     return render_template("home.html")
 
@@ -68,11 +68,10 @@ def play():
         if lifepoint <= 0 or "_" not in indice :        
             return render_template("result.html", lifepoint = lifepoint, word_to_guess = word_to_guess)
         else :
-            return render_template("play.html", result = result, lifepoint = lifepoint, indice = " ".join(indice), word_to_guess = word_to_guess)
+            return render_template("play.html", result = result, lifepoint = lifepoint, indice = ' '.join(indice), word_to_guess = ' '.join(word_to_guess))
     elif request.method == "GET":
         reset_game()
-        return render_template("play.html", result = result, lifepoint = lifepoint, indice = indice, word_to_guess = word_to_guess) 
-        
+        return render_template("play.html", result = result, lifepoint = lifepoint, indice = ' '.join(indice), word_to_guess = ' '.join(word_to_guess))        
     
 
 

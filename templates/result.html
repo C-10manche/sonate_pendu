@@ -5,16 +5,16 @@
 {% block content %}
     <div class="box">
         {% if lifepoint > 0 %}
-            <h2><span class="green">BRAVO</span> ! C'était bien <span class="green">"{{word_to_guess.upper()}}"</span> !</h2>
-            <br><br>
+            <h2 class="green">BRAVO ! C'était bien "{{word_to_guess.upper()}}"!</h2>
+            <br>
             <img class="pendu" src="/static/images/gagner.gif">
         {% else %}
-            <h2><span class="red">PERDU</span> ! C'était <span class="red">"{{word_to_guess.upper()}}"</span> !</h2>
-            <br><br>
+            <h2 class="red">PERDU ! C'était "{{word_to_guess.upper()}}"!</h2>
+            <br>
             <img class="pendu" src="/static/images/perdu.png">
         {% endif %}
         <br><br>
-        <form action="/" method="get"><button type="submit">Acceuil</button></form>
         <form action="/play" method="get"><button type="submit">Rejouer</button></form>
+        <form action="/" method="get"><button type="submit">Acceuil</button></form>
     </div>
 {% endblock %}

@@ -1,13 +1,11 @@
 {% extends 'layout.html' %}
 
-{% block title %}Jeu du Pendu{% endblock %}
+{% block title %}Joue{% endblock %}
 
 {% block content %}
-    <h2>
-        <div>{{result}}</div>
-        <div>Mot à deviner : <span class="red">{{word_to_guess}}</span></div>
-        <div>Vies : <span class="red">{{lifepoint}}</span></div>
-    </h2>
+    <h1>Jeu du Pendu</h1>
+    <h2>Session de jeu de {{playername}}</h2>
+    <br>
     <div>
         {% if lifepoint == 5 %}
             <img class="pendu" src="/static/images/5lp.png">
@@ -21,8 +19,18 @@
             <img class="pendu" src="/static/images/1lp.png">
         {% endif %}
     </div>
-    <br>
-    <h2>{{indice}}</h2>
+    <div>
+        <br>
+        <h2>Vies : <span class="red big">{{lifepoint}}</span></h2>
+        
+        {% if result == "OUI !" %}
+            <h2 class="green">{{result}}</h2>
+        {% else %}
+            <h2 class="red">{{result}}</h2>
+        {% endif %}
+
+        <h2>{{indice}}</h2>
+    </div>
     <br>  
     <div class="box">
         <form action="/play" method="post">
@@ -33,7 +41,11 @@
                     {% endif %}
                 {% endfor %}
         </form>
-        <form action="/" method="get"><button type="submit">Acceuil</button></form>
-        <form action="/play" method="get"><button type="submit">Rejouer</button></form>
+        <br><br>
+        <div class="align">
+            <form action="/play" method="get"><button type="submit">Rejouer</button></form>
+            <form action="/" method="get"><button type="submit">Acceuil</button></form>
+        </div>
+        <br>
     </div>
 {% endblock %}
