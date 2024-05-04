@@ -110,21 +110,18 @@ body {
 }
 
 button{
-    color: #f2fdffdc;
     border-radius: 40px;
     cursor: pointer;
-    background: rgba(85, 85, 85, 0.808);
     transition: all .3s ease 0s;
     font-weight: 100;
 }
 
 .box button:hover{
-  background: rgba(32, 32, 32, 0.808);
-  border-color:  rgba(255, 255, 255, 0.856);
-  color: rgba(255, 255, 255, 0.856);
-  transition: all 0.3s ease 0s;
-  text-align: center;
-  cursor:pointer;
+  color: rgba(255, 255, 255, 0.8);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  background: rgba(44, 44, 44, 0.8);
+  transition: all .3s ease 0s;
+  transform: scale(1.1);
 }
 
 .letter button{  
@@ -145,20 +142,15 @@ button{
   width: fit-content;
   height: fit-content;
   text-align: center;
-  background: rgba(255, 255, 255, 0.116);
-  border: none;
-  outline: none;
-  border: 2px solid rgba(255, 255, 255, 0.534);
+  color: rgba(255, 255, 255, 0.8);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  background: rgba(44, 44, 44, 0.6);
   border-radius: 7px;
   margin: 5px;
   padding: 15px;
   padding-top: 5px;
   padding-bottom: 5px;
   font-size: 20px;
-  transition: all .3s ease 0s;
-}
-
-.menu button:hover{
   transition: all .3s ease 0s;
 }
 
