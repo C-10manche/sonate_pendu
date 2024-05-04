@@ -62,7 +62,7 @@ def get_random_word():
     random_word = list_of_words[random_place]    
     return random_word
 
-def play_hangman():
+def continue_to_play_hangman():
     global playername, lifepoint, word_to_guess, indice, player_guess, result
     player_guess = request.form["playerguess"]
     new_indice = []
@@ -110,7 +110,7 @@ def play():
             playername = request.form["playername"] 
             return reset_game()       
         elif "playerguess" in request.form:
-            return play_hangman()
+            return continue_to_play_hangman()
         elif "replay" in request.form:
             return reset_game()
     
