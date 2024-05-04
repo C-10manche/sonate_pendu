@@ -3,18 +3,29 @@
 {% block title %}Résultat{% endblock %}
 
 {% block content %}
-    <div class="box">
-        {% if lifepoint > 0 %}
-            <h2 class="green">BRAVO ! C'était bien "{{word_to_guess.upper()}}"!</h2>
-            <br>
-            <img class="pendu" src="/static/images/gagner.gif">
-        {% else %}
-            <h2 class="red">PERDU ! C'était "{{word_to_guess.upper()}}"!</h2>
-            <br>
-            <img class="pendu" src="/static/images/perdu.png">
-        {% endif %}
-        <br><br>
-        <form action="/play" method="get"><button type="submit">Rejouer</button></form>
-        <form action="/" method="get"><button type="submit">Acceuil</button></form>
-    </div>
+    <main class="wrapper home">
+        <h1>Résultat</h1>
+        <main class="box">
+            {% if lifepoint > 0 %}
+                <h2 class="green">BRAVO !</h2> 
+                <div class="align">
+                    <h2 class="space"> Le mot à trouver était bien</h2> <h2 class="green space">"{{word_to_guess.upper()}}"!</h2>
+                </div>
+                <br>
+                <img class="pendu result-green" src="/static/images/gagner.gif">
+            {% else %}
+                <h2 class="red">PERDU !</h2>
+                <div class="align">
+                     <h2 class="space"> Le mot à trouver était</h2> <h2 class="red space">"{{word_to_guess.upper()}}"!</h2>
+                </div>
+                <br>
+                <img class="pendu result-red" src="/static/images/perdu.png">
+            {% endif %}
+            <br><br>
+            <div class="box menu align">
+                <form action="/play" method="post"><button type="submit" name = "replay">Rejouer</button></form>
+                <form action="/" method=""><button type="submit">Acceuil</button></form>
+            </div>
+        </main>
+    </main>
 {% endblock %}

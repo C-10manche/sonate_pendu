@@ -3,49 +3,82 @@
 {% block title %}Joue{% endblock %}
 
 {% block content %}
-    <h1>Jeu du Pendu</h1>
-    <h2>Session de jeu de {{playername}}</h2>
-    <br>
-    <div>
-        {% if lifepoint == 5 %}
-            <img class="pendu" src="/static/images/5lp.png">
-        {% elif lifepoint == 4 %}
-            <img class="pendu" src="/static/images/4lp.png">
-        {% elif lifepoint == 3 %}
-            <img class="pendu" src="/static/images/3lp.png">
-        {% elif lifepoint == 2 %}
-            <img class="pendu" src="/static/images/2lp.jpg">
-        {% elif lifepoint == 1 %}
-            <img class="pendu" src="/static/images/1lp.png">
-        {% endif %}
-    </div>
-    <div>
-        <br>
-        <h2>Vies : <span class="red big">{{lifepoint}}</span></h2>
-        
-        {% if result == "OUI !" %}
-            <h2 class="green">{{result}}</h2>
-        {% else %}
-            <h2 class="red">{{result}}</h2>
-        {% endif %}
-
-        <h2>{{indice}}</h2>
-    </div>
-    <br>  
-    <div class="box">
-        <form action="/play" method="post">
-                {% for letter in 'abcdefghijklmnopqrstuvwxyz' %}
-                    <button type="submit" name="playerguess" value="{{ letter }}">{{ letter.upper() }}</button>
-                    {% if loop.index % 6 == 0 %}
-                        <br>
-                    {% endif %}
-                {% endfor %}
-        </form>
-        <br><br>
+    <br>    
+    <main class="wrapper">
+        <h1 class="red">Jeu du Pendu</h1>
         <div class="align">
-            <form action="/play" method="get"><button type="submit">Rejouer</button></form>
-            <form action="/" method="get"><button type="submit">Acceuil</button></form>
+        <h2 class="big">Session de jeu de</h2><h2 class="big red space">{{playername}}</h2>
+        </div>
+        <br>    
+        <div>
+            {% if lifepoint == 5 %}
+                <img class="pendu" src="/static/images/5lp.png">
+            {% elif lifepoint == 4 %}
+                <img class="pendu" src="/static/images/4lp.png">
+            {% elif lifepoint == 3 %}
+                <img class="pendu" src="/static/images/3lp.png">
+            {% elif lifepoint == 2 %}
+                <img class="pendu" src="/static/images/2lp.jpg">
+            {% elif lifepoint == 1 %}
+                <img class="pendu" src="/static/images/1lp.png">
+            {% endif %}
         </div>
         <br>
-    </div>
+        <span class="life">
+                Il vous reste encore <span class="red big">{{lifepoint}}</span> vies
+        </span>
+        <div>
+            <br>
+            <p>Instructions : </p>
+            {% if result == "OUI !" %}
+                <p class="green">{{result}}</p>
+            {% elif result == "NON !" %}
+                <p class="red">{{result}}</p>            
+            {% else %}
+                <p>"{{result}}"</p>
+            {% endif %}
+
+            <h2>{{indice}}<br>{{word_to_guess}}</h2>
+        </div>
+        <div class="box letter">
+            <form action="/play" method="post">
+                <button type="submit" name="playerguess" value="a">A</button>
+                <button type="submit" name="playerguess" value="b">B</button>
+                <button type="submit" name="playerguess" value="c">C</button>
+                <button type="submit" name="playerguess" value="d">D</button>
+                <button type="submit" name="playerguess" value="e">E</button>
+                <button type="submit" name="playerguess" value="f">F</button>
+                <br>
+                <button type="submit" name="playerguess" value="g">G</button>
+                <button type="submit" name="playerguess" value="h">H</button>
+                <button type="submit" name="playerguess" value="i">I</button>
+                <button type="submit" name="playerguess" value="j">J</button>
+                <button type="submit" name="playerguess" value="k">K</button>
+                <button type="submit" name="playerguess" value="l">L</button>
+                <br>
+                <button type="submit" name="playerguess" value="m">M</button>
+                <button type="submit" name="playerguess" value="n">N</button>
+                <button type="submit" name="playerguess" value="o">O</button>
+                <button type="submit" name="playerguess" value="p">P</button>
+                <button type="submit" name="playerguess" value="q">Q</button>
+                <button type="submit" name="playerguess" value="r">R</button>
+                <br>
+                <button type="submit" name="playerguess" value="s">S</button>
+                <button type="submit" name="playerguess" value="t">T</button>
+                <button type="submit" name="playerguess" value="u">U</button>
+                <button type="submit" name="playerguess" value="v">V</button>
+                <button type="submit" name="playerguess" value="w">W</button>
+                <button type="submit" name="playerguess" value="x">X</button>
+                <br>
+                <button type="submit" name="playerguess" value="y">Y</button>
+                <button type="submit" name="playerguess" value="z">Z</button>
+                <br>
+            </form>
+        </div>
+        <br>        
+        <div class="box menu align">
+            <form action="/play" method="post"><button type="submit" name = "replay">Rejouer</button></form>
+            <form action="/" method=""><button type="submit">Acceuil</button></form>
+        </div>
+    </main>
 {% endblock %}

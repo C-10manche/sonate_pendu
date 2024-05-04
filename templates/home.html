@@ -3,13 +3,19 @@
 {% block title %}Accueil{% endblock %}
 
 {% block content %}
-  <form action="/" method="post">
-    <h1>Accueil</h1>
-    <div class="box">
+<main class="wrapper home">
+  <h1>Accueil</h1>
+  <form action="/play" method="post">
+    <div class="box menu">
+      <br>
+      <br>
+      <p>Veuillez rentrer votre nom ci-dessous </p>
+      <p>puis cliquer sur Démarrer</p>
       <br>
       <input type="text" id="playername" name="playername" placeholder="Entrez votre nom ici" required oninvalid="this.setCustomValidity('Ecrivez votre nom')" oninput="this.setCustomValidity('')"/>
       <br><br>
       <button type="submit">Démarrer</button>
     </div>
   </form>
+</main>
 {% endblock %}
