@@ -5,7 +5,7 @@ playername = ""
 lifepoint = 5
 word_to_guess = ""
 indice = ""
-player_guess = ""
+playerguess = ""
 result = ""
 list_of_words = []
 
@@ -63,18 +63,18 @@ def get_random_word():
     return random_word
 
 def continue_to_play_hangman():
-    global playername, lifepoint, word_to_guess, indice, player_guess, result
-    player_guess = request.form["playerguess"]
+    global playername, lifepoint, word_to_guess, indice, playerguess, result
+    playerguess = request.form["playerguess"]
     new_indice = []
     
     #Check si le joueur a deviné la lettre
-    if player_guess in remove_accent(indice):
+    if playerguess in remove_accent(indice):
         result = "Lettre Déjà Trouvé !"           
-    elif player_guess in word_to_guess: 
+    elif playerguess in word_to_guess: 
         result = "OUI !" 
         #Met à jour l'indice        
         for x in range(len(word_to_guess)):
-            if player_guess == remove_accent(word_to_guess[x]):
+            if playerguess == remove_accent(word_to_guess[x]):
                 new_indice.append(word_to_guess[x])
             else :
                 new_indice.append(indice[x])                    
@@ -105,7 +105,7 @@ def home():
 
 @app.route("/play", methods=["POST"])
 def play():
-    global playername, list_of_words, lifepoint, word_to_guess, indice, player_guess, result 
+    global playername, list_of_words, lifepoint, word_to_guess, indice, playerguess, result 
     
     #Gère les actions du joueur
     if request.method == "POST":
@@ -113,10 +113,12 @@ def play():
             list_of_words = open_dictionary()  
             playername = request.form["playername"] 
             return reset_game()       
-        elif "playerguess" in request.form:
+        elif "playerguess" in request.form and request.form["playerguess"] != playerguess :
             return continue_to_play_hangman()
         elif "replay" in request.form:
             return reset_game()
+        else:
+            return render_template("play.html", playername = playername, result = result, lifepoint = lifepoint, indice = ' '.join(indice), word_to_guess = ' '.join(word_to_guess))
     
 
 #flask --app server run
