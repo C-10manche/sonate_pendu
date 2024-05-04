@@ -110,6 +110,9 @@ body {
 }
 
 button{
+    color: rgba(255, 255, 255, 0.8);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    background: rgba(44, 44, 44, 0.6);
     border-radius: 40px;
     cursor: pointer;
     transition: all .3s ease 0s;
@@ -125,12 +128,12 @@ button{
 }
 
 .letter button{  
-  width: 65px ;
-  height: 65px;
+  width: 60px ;
+  height: 60px;
   text-align: center;
-  background: rgba(255, 255, 255, 0.116);
   border: none;
   outline: none;
+  background: rgba(179, 179, 179, 0.185);
   border: 3px solid rgba(203, 240, 255, 0.137);
   border-radius: 20%;
   margin: 4px;
@@ -142,9 +145,6 @@ button{
   width: fit-content;
   height: fit-content;
   text-align: center;
-  color: rgba(255, 255, 255, 0.8);
-  border: 2px solid rgba(255, 255, 255, 0.8);
-  background: rgba(44, 44, 44, 0.6);
   border-radius: 7px;
   margin: 5px;
   padding: 15px;
@@ -163,7 +163,7 @@ button{
   background: transparent;
   border: none;
   outline: none;
-  border: 3px solid rgba(255, 255, 255, 0.534);
+  border: 2px solid rgba(255, 255, 255, 0.534);
   border-radius: 40px;
   margin-bottom: 2px;
   transition: all 0.3s ease 0s;
@@ -173,7 +173,7 @@ button{
   background: rgba(32, 32, 32, 0.808);
   border-color:  rgba(255, 255, 255, 0.856);
   color: rgba(255, 255, 255, 0.856);
-  padding: 1px 6px 1px 6px;
+  transform: scale(1.1);
   transition: all 0.3s ease 0s;
 }
 
