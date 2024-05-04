@@ -35,10 +35,13 @@ h2{
   color: rgba(255, 255, 255, 0.938);
   transition: all .3s ease 0s;
   font-size: 25px;
+  text-shadow: 2px 0 0 #ffffff15, -2px 0 0 #ffffff15, 0 2px 0 #ffffff15, 0 -2px 0 #ffffff15, 1px 1px #ffffff15, -1px -1px 0 #ffffff15, 1px -1px 0 #ffffff15, -1px 1px 0 #ffffff15;
 }
 
 h2:hover{
+  color: rgba(32, 32, 32, 0.808);
   transition: all .3s ease 0s;
+  transform: scale(1.05);
 }
 
 p{
