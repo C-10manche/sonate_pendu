@@ -18,14 +18,15 @@
 h1 {
   display: flex;
   font-size: 60px;
-  color: rgba(255, 255, 255, 0.795);
-  cursor:default;
+  color: rgba(32, 32, 32, 0.808);
+  cursor: default;
   transition: all .3s ease 0s;
+  text-shadow: 2px 0 0 #ffffff15, -2px 0 0 #ffffff15, 0 2px 0 #ffffff15, 0 -2px 0 #ffffff15, 1px 1px #ffffff15, -1px -1px 0 #ffffff15, 1px -1px 0 #ffffff15, -1px 1px 0 #ffffff15;
  }
  
 
 h1:hover{
-  color: rgba(214, 79, 56, 0.856);
+  color: rgba(255, 255, 255, 0.856);
   transition: all .3s ease 0s;
 }
 
@@ -49,7 +50,7 @@ p{
 }
 
 p:hover{
-  color: rgba(214, 79, 56, 0.856);
+  color: rgba(32, 32, 32, 0.808);
   transition: all .3s ease 0s;
 }
 
@@ -119,8 +120,8 @@ button{
 
 .box button:hover{
   background: rgba(32, 32, 32, 0.808);
-  border-color:  rgba(214, 79, 56, 0.856);
-  color: rgba(214, 79, 56, 0.856);
+  border-color:  rgba(255, 255, 255, 0.856);
+  color: rgba(255, 255, 255, 0.856);
   transition: all 0.3s ease 0s;
   text-align: center;
   cursor:pointer;
@@ -178,8 +179,8 @@ button{
 
 .box input:hover{
   background: rgba(32, 32, 32, 0.808);
-  border-color:  rgba(214, 79, 56, 0.856);
-  color: rgba(214, 79, 56, 0.856);
+  border-color:  rgba(255, 255, 255, 0.856);
+  color: rgba(255, 255, 255, 0.856);
   padding: 1px 6px 1px 6px;
   transition: all 0.3s ease 0s;
 }
@@ -193,6 +194,7 @@ input::placeholder{
   height: 15vh;
   border: 2px solid rgba(208, 242, 255, 0.247);
   border-radius: 10px;
+  transition: all 0.3s ease 0s;
 }
 
 .result-green{
@@ -205,6 +207,14 @@ input::placeholder{
   width: 20vh;
   height: 20vh;
   border: 2px solid rgba(214, 80, 56, 0.61);
+ }
+
+.result-green:hover{
+  border: 2px solid rgba(222, 255, 244, 0.514);
+ }
+
+ .result-red:hover{
+  border: 2px solid rgba(255, 235, 231, 0.61);
  }
 
 .align {
@@ -233,7 +243,7 @@ input::placeholder{
   color: rgba(56, 214, 161, 0.856);
 }
 .green:hover {
-  color: rgba(40, 209, 153, 0.856);
+  color: rgba(255, 255, 255, 0.856);
 }
 
 .big {
