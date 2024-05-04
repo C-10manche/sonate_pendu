@@ -189,6 +189,12 @@ input::placeholder{
   transition: all 0.3s ease 0s;
 }
 
+.pendu:hover{
+  transform: scale(1.1);
+  border: 2px solid rgba(255, 255, 255, 0.473);
+  transition: all 0.3s ease 0s;
+}
+
 .result-green{
   width: 25vh;
   height: 15vh;
@@ -199,14 +205,6 @@ input::placeholder{
   width: 20vh;
   height: 20vh;
   border: 2px solid rgba(214, 80, 56, 0.61);
- }
-
-.result-green:hover{
-  border: 2px solid rgba(222, 255, 244, 0.514);
- }
-
- .result-red:hover{
-  border: 2px solid rgba(255, 235, 231, 0.61);
  }
 
 .align {
