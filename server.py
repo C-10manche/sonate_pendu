@@ -113,7 +113,7 @@ def play():
             list_of_words = open_dictionary()  
             playername = request.form["playername"] 
             return reset_game()       
-        elif "playerguess" in request.form and request.form["playerguess"] != playerguess :
+        elif "playerguess" in request.form:
             return continue_to_play_hangman()
         elif "replay" in request.form:
             return reset_game()
