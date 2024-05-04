@@ -67,20 +67,23 @@ def continue_to_play_hangman():
     player_guess = request.form["playerguess"]
     new_indice = []
     
+    #Check si le joueur a deviné la lettre
     if player_guess in remove_accent(indice):
-        result = "Déjà Trouvé !"
+        result = "Lettre Déjà Trouvé !"           
     elif player_guess in word_to_guess: 
-        result = "OUI !"         
+        result = "OUI !" 
+        #Met à jour l'indice        
         for x in range(len(word_to_guess)):
             if player_guess == remove_accent(word_to_guess[x]):
                 new_indice.append(word_to_guess[x])
             else :
                 new_indice.append(indice[x])                    
-        indice = "".join(new_indice)           
+        indice = "".join(new_indice)    
     else :
         result = "NON !"
         lifepoint -= 1
-    
+        
+    #Check si le jeu continue        
     if lifepoint <= 0 or "_" not in indice :        
         return render_template("result.html", lifepoint = lifepoint, word_to_guess = word_to_guess)
     else :
@@ -103,7 +106,8 @@ def home():
 @app.route("/play", methods=["POST"])
 def play():
     global playername, list_of_words, lifepoint, word_to_guess, indice, player_guess, result 
-      
+    
+    #Gère les actions du joueur
     if request.method == "POST":
         if "playername" in request.form:
             list_of_words = open_dictionary()  
