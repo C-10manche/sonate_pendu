@@ -12,7 +12,7 @@
   font-weight: 400;
   align-items: center;
   justify-content: center;
-  transition: all 1s ease 0s;
+  transition: all 1s ease 0s;  
 }
 
 h1 {
@@ -45,19 +45,20 @@ h2:hover{
   transform: scale(1.05);
 }
 
-p{
-  text-align: center;
-  font-weight: 100;
-  cursor:default;
-  color: rgba(241, 255, 254, 0.6);
-  transition: all 1s ease 0.1s;
-  opacity: .8;
-  filter: blur(0.5px);
+
+p {
+ text-align: center;
+ font-weight: 100;
+ cursor: default;
+ color: rgba(241, 255, 254, 0.6);
+ opacity: .8;
+ filter: blur(0.5px);
 }
 
 p:hover{
   opacity: 1;
-  transform: scale(1.1);
+  font-size: 21px;
+  color: rgba(255, 255, 255, 0.6);
   transition: all 1s ease 0s;
   filter: blur(0px);
 }
@@ -247,6 +248,7 @@ input::placeholder{
 .red {
   color: rgba(214, 79, 56, 0.856);
 }
+
 .red:hover {
   color: rgba(255, 255, 255, 0.856);
 }
@@ -261,7 +263,7 @@ input::placeholder{
 .big {
   font-size: 20px;
   font-weight: 600;
-  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: all 1s ease 0.1s;
 }
 
 .life {
