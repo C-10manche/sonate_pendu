@@ -9,7 +9,8 @@
   font-weight: 400;
   align-items: center;
   justify-content: center;
-  transition: all 1s ease 0s;  
+  transition: all 1s ease 0s; 
+  text-shadow: #00241e69 0px 0px 15px; 
 }
 
 h1 {
@@ -18,7 +19,6 @@ h1 {
   color: rgba(222, 255, 255, 0.637);
   cursor: default;
   transition: all 1s ease 0.1s;
-  text-shadow: 2px 0 0 #ffffff15, -2px 0 0 #ffffff15, 0 2px 0 #ffffff15, 0 -2px 0 #ffffff15, 1px 1px #ffffff15, -1px -1px 0 #ffffff15, 1px -1px 0 #ffffff15, -1px 1px 0 #ffffff15;
  } 
 
 h1:hover{
@@ -31,8 +31,7 @@ h2{
   cursor:default;
   color: rgba(235, 255, 255, 0.5);
   transition: all 1s ease 0s;
-  font-size: 20px;
-  text-shadow: 2px 0 0 #ffffff15, -2px 0 0 #ffffff15, 0 2px 0 #ffffff15, 0 -2px 0 #ffffff15, 1px 1px #ffffff15, -1px -1px 0 #ffffff15, 1px -1px 0 #ffffff15, -1px 1px 0 #ffffff15;
+  font-size: 20px;  
 }
 
 h2:hover{
