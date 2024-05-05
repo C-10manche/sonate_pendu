@@ -52,9 +52,9 @@
             <form action="/play" method="post">
                 {% for letter in "abcdefghijklmnopqrstuvwxyz" %}
                     {% if letter in wrong_guess %}
-                        <button class="red" type="submit" name="playerguess" value="{{letter}}">{{letter.upper()}}</button>
+                        <button class="red used" type="submit" name="playerguess" value="{{letter}}">{{letter.upper()}}</button>
                     {% elif letter in indice %}                    
-                        <button class="green" type="submit" name="playerguess" value="{{letter}}">{{letter.upper()}}</button>
+                        <button class="green used" type="submit" name="playerguess" value="{{letter}}">{{letter.upper()}}</button>
                     {% else %}
                         <button type="submit" name="playerguess" value="{{letter}}">{{letter.upper()}}</button>
                     {% endif %}
