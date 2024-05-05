@@ -154,6 +154,7 @@ button{
   align-content: center;
 }
 .letter button:hover{
+  transition: all .6s ease 0s;
   border-radius: 100%;
 }
 
