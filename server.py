@@ -68,7 +68,7 @@ def continue_to_play_hangman():
     
     #Check si le joueur a deviné la lettre
     if playerguess in remove_accent(indice):
-        result = "Lettre Déjà Trouvé !"           
+        result = "Vous avez déjà trouvé cette lettre !"           
     elif playerguess in word_to_guess: 
         result = "OUI !" 
         #Met à jour l'indice        

@@ -27,7 +27,7 @@ h1 {
 
 h1:hover{
   color: rgba(255, 255, 255, 0.9);
-  transform: scale(1.03);
+  transform: scale(1.1);
   transition: all 2s ease 0s;
 }
 
@@ -49,13 +49,17 @@ p{
   text-align: center;
   font-weight: 100;
   cursor:default;
-  color: rgba(241, 255, 254, 0.5);
-  transition: all .3s ease 0s;
+  color: rgba(241, 255, 254, 0.6);
+  transition: all 1s ease 0.1s;
+  opacity: .8;
+  filter: blur(0.5px);
 }
 
 p:hover{
-  color: rgba(255, 255, 255, 0.9);
-  transition: all .3s ease 0s;
+  opacity: 1;
+  transform: scale(1.1);
+  transition: all 1s ease 0s;
+  filter: blur(0px);
 }
 
 body {
@@ -121,6 +125,7 @@ button{
     cursor: pointer;
     transition: all 1s ease 0.1s;
     font-weight: 100;
+    filter: blur(0.5px);
 }
 
 .box button:hover{
@@ -132,29 +137,33 @@ button{
   margin-bottom: 10px;
   margin-left: 10px;
   margin-right: 10px;
+  filter: blur(0px);
 }
 
 .letter button{  
-  width: 60px ;
-  height: 60px;
+  width: 50px ;
+  height: 50px;
   text-align: center;
   border: none;
   outline: none;
   background: rgba(179, 179, 179, 0.185);
-  border: 3px solid rgba(203, 240, 255, 0.137);
-  border-radius: 20%;
+  border: 2px solid rgba(203, 240, 255, 0.137);
+  border-radius: 5px;
   margin: 4px;
   padding: 5px;
   align-content: center;
+}
+.letter button:hover{
+  border-radius: 100%;
 }
 
 .menu button{
   width: fit-content;
   height: fit-content;
   text-align: center;
-  border-radius: 7px;
   background: rgba(179, 179, 179, 0.185);
-  border: 3px solid rgba(203, 240, 255, 0.137);
+  border: 2px solid rgba(203, 240, 255, 0.137);
+  border-radius: 5px;
   margin: 5px;
   padding: 15px;
   padding-top: 5px;
@@ -175,6 +184,7 @@ button{
   border-radius: 40px;
   margin-bottom: 2px;
   transition: all 0.3s ease 0s;
+  filter: blur(0.5px);
 }
 
 .box input:hover{
@@ -183,6 +193,7 @@ button{
   color: rgba(255, 255, 255, 0.856);
   transform: scale(1.1);
   transition: all 0.3s ease 0s;
+  filter: blur(0px);
 }
 
 input::placeholder{
