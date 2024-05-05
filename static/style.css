@@ -16,7 +16,7 @@
 h1 {
   display: flex;
   font-size: 60px;
-  color: rgba(222, 255, 255, 0.637);
+  color: rgba(234, 255, 255, 0.719);
   cursor: default;
   transition: all 1s ease 0.1s;
  } 
@@ -302,4 +302,12 @@ input::placeholder{
   padding: 10px;
   font-size: 50px;
   color: rgba(255, 255, 255, 0.808);
+ }
+
+ .loose:hover{
+  background-color: rgba(170, 26, 0, 0.1);
+ }
+
+ .win:hover{
+  background-color: rgba(0, 141, 94, 0.1);
  }

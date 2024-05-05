@@ -3,20 +3,24 @@
 {% block title %}Résultat{% endblock %}
 
 {% block content %}
-    <main class="wrapper home">
+    {% if lifepoint > 0 %}
+        <main class="wrapper home win">    
+    {% else %}
+        <main class="wrapper home loose">
+    {% endif %}
         <h1>Résultat</h1>
         <br><br>
         <main class="box">
             {% if lifepoint > 0 %}
                 <h2 class="green big">BRAVO !</h2>
                 <h2>Le mot à trouver était bien</h2>
-                <h2 class="green big">"{{word_to_guess.upper()}}"!</h2>
+                <h2 class="green big">" {{' '.join(word_to_guess.upper())}} "</h2>
                 <br>
                 <img class="pendu result-green" src="/static/images/gagner.gif">
             {% else %}
                 <h2 class="red big">PERDU !</h2>
                 <h2>Le mot à trouver était</h2>
-                <h2 class="red big">"{{word_to_guess.upper()}}"!</h2>
+                <h2 class="red big">" {{' '.join(word_to_guess.upper())}} "</h2>
                 <br>
                 <img class="pendu result-red" src="/static/images/perdu.gif">
             {% endif %}
