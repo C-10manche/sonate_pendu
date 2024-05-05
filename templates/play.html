@@ -50,8 +50,14 @@
         </div>
         <div class="box letter">
             <form action="/play" method="post">
-                {% for letter in "abcdefghijklmnopqrstuvwxyz"%}
-                    <button type="submit" name="playerguess" value="{{letter}}">{{letter.upper()}}</button>
+                {% for letter in "abcdefghijklmnopqrstuvwxyz" %}
+                    {% if letter in wrong_guess %}
+                        <button class="red" type="submit" name="playerguess" value="{{letter}}">{{letter.upper()}}</button>
+                    {% elif letter in indice %}                    
+                        <button class="green" type="submit" name="playerguess" value="{{letter}}">{{letter.upper()}}</button>
+                    {% else %}
+                        <button type="submit" name="playerguess" value="{{letter}}">{{letter.upper()}}</button>
+                    {% endif %}
                     {% if loop.index % 6 == 0 %}
                         <br>
                     {% endif %}

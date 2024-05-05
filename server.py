@@ -8,6 +8,7 @@ indice = ""
 playerguess = ""
 result = ""
 list_of_words = []
+wrong_guess =[]
 
 def open_dictionary(): 
     #On récupère chaque phrases du file dictionnaire.txt puis on récupère chaque premier mots
@@ -21,10 +22,7 @@ def open_dictionary():
     
     return list_of_words
 
-def remove_accent(word:str):
-    #Je vais demander au prof si on peut utiliser unidecode, si il dit oui je supprimerais cette fonction    
-    #J'ai seulement mis les caractères spéciaux qui étaient présent dans le dictionnaire.txt
-    
+def remove_accent(word:str):    
     a = ["à", "â"]
     e = ["è", "é", "ê"]
     i = ["î", "ï"]
@@ -66,7 +64,7 @@ def continue_to_play_hangman():
     new_indice = []
     
     #Check si le joueur a deviné la lettre
-    if playerguess in remove_accent(indice):
+    if playerguess in remove_accent(indice) or playerguess in wrong_guess:
         result = "Vous avez déjà trouvé cette lettre !"           
     elif playerguess in remove_accent(word_to_guess): 
         result = "OUI !" 
@@ -76,25 +74,28 @@ def continue_to_play_hangman():
                 new_indice.append(word_to_guess[x])
             else :
                 new_indice.append(indice[x])                    
-        indice = "".join(new_indice)    
+        indice = "".join(new_indice)
     else :
         result = "NON !"
         lifepoint -= 1
-        
+        wrong_guess.append(playerguess)
+    
+    playerguess = "0"
     #Check si le jeu continue        
-    if lifepoint <= 0 or "_" not in indice :        
+    if lifepoint <= 0 or "_" not in indice :      
         return render_template("result.html", lifepoint = lifepoint, word_to_guess = word_to_guess)
     else :
-        return render_template("play.html", result = result, lifepoint = lifepoint, indice = indice, word_to_guess = word_to_guess)
+        return render_template("play.html", result = result, lifepoint = lifepoint, indice = indice, word_to_guess = word_to_guess, wrong_guess = wrong_guess)
 
 def reset_game():
     #Réinitialise les variables du jeu à leur valeur initial
-    global playername, list_of_words, lifepoint, word_to_guess, indice, playerguess, result 
+    global list_of_words, lifepoint, word_to_guess, indice, playerguess, result, wrong_guess
     lifepoint = 5
     word_to_guess = get_random_word()
+    wrong_guess.clear()
     indice = "_" * len(word_to_guess)
     result = "Cliquer sur les lettres pour trouver le mot caché"
-    return render_template("play.html", result = result, lifepoint = lifepoint, indice = indice, word_to_guess = word_to_guess)
+    return render_template("play.html", result = result, lifepoint = lifepoint, indice = indice, word_to_guess = word_to_guess, wrong_guess = wrong_guess)
 
 app = Flask(__name__)
 @app.route("/")
@@ -103,7 +104,7 @@ def home():
 
 @app.route("/play", methods=["POST"])
 def play():
-    global playername, list_of_words, lifepoint, word_to_guess, indice, playerguess, result 
+    global playername, list_of_words
     
     #Gère les actions du joueur
     if request.method == "POST":
@@ -116,7 +117,7 @@ def play():
         elif "replay" in request.form:
             return reset_game()
     
-    return render_template("play.html", result = result, lifepoint = lifepoint, indice = indice, word_to_guess = word_to_guess)
+    return render_template("play.html", result = result, lifepoint = lifepoint, indice = indice, word_to_guess = word_to_guess, wrong_guess = wrong_guess)
     
 
 #flask --app server run
