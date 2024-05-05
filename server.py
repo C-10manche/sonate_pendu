@@ -23,16 +23,15 @@ def open_dictionary():
     return list_of_words
 
 def remove_accent(word:str):
-    #Cette fonction c'est pour ne pas utiliser unidecode qui est une library externe
-    #Je vais demander au prof si on peut utiliser unidecode, si il dit oui je supprimerais cette fonction
-    
+    #Je vais demander au prof si on peut utiliser unidecode, si il dit oui je supprimerais cette fonction    
     #J'ai seulement mis les caractères spéciaux qui étaient présent dans le dictionnaire.txt
-    a = ['à', 'â']
-    e = ['è', 'é', 'ê', 'ë']
-    i = ['î', 'ï']
-    o = ['ô', 'ö']
-    u = ['ù', 'û', 'ü']
-    c = ['ç']
+    
+    a = ["à", "â"]
+    e = ["è", "é", "ê"]
+    i = ["î", "ï"]
+    o = ["ô"]
+    u = ["ù", "û"]
+    c = ["ç"]
     
     word = word.lower()
     new_word = ""
@@ -123,7 +122,3 @@ def play():
 
 #flask --app server run
 #flask --app server --debug run
-
-#if __name__ == "__main__":
-#    app.run(debug=True, host='127.0.0.1', port=5000)
-#    list_of_words = open_dictionary()

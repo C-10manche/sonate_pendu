@@ -20,14 +20,15 @@ h1 {
   font-size: 60px;
   color: rgba(222, 255, 255, 0.637);
   cursor: default;
-  transition: all .3s ease 0s;
+  transition: all 1s ease 0.1s;
   text-shadow: 2px 0 0 #ffffff15, -2px 0 0 #ffffff15, 0 2px 0 #ffffff15, 0 -2px 0 #ffffff15, 1px 1px #ffffff15, -1px -1px 0 #ffffff15, 1px -1px 0 #ffffff15, -1px 1px 0 #ffffff15;
  }
  
 
 h1:hover{
   color: rgba(255, 255, 255, 0.9);
-  transition: all .3s ease 0s;
+  transform: scale(1.03);
+  transition: all 2s ease 0s;
 }
 
 h2{
@@ -118,7 +119,7 @@ button{
     background: rgba(44, 44, 44, 0.3);
     border-radius: 40px;
     cursor: pointer;
-    transition: all 1s ease 0s;
+    transition: all 1s ease 0.1s;
     font-weight: 100;
 }
 
@@ -159,7 +160,6 @@ button{
   padding-top: 5px;
   padding-bottom: 5px;
   font-size: 20px;
-  transition: all .3s ease 0s;
 }
 
 .box input{
@@ -265,7 +265,7 @@ input::placeholder{
 
 .life:hover {
     transition: all .3s ease 0s;
-    font-size: 22px;
+    font-size: 20px;
 }
 
 .space {
@@ -273,13 +273,12 @@ input::placeholder{
  }
 
  .indice{
-  transition: all 1s ease 0s;
+  transition: all 1s ease 0.1s;
   font-size: 40px;
   color: rgba(235, 255, 255, 0.5);
  }
 
  .indice.white{
-  transition: all 1s ease 0s;
   color: rgba(227, 240, 248, 0.932);
  }
 
