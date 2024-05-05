@@ -87,16 +87,16 @@ def continue_to_play_hangman():
     if lifepoint <= 0 or "_" not in indice :        
         return render_template("result.html", lifepoint = lifepoint, word_to_guess = word_to_guess)
     else :
-        return render_template("play.html", result = result, lifepoint = lifepoint, indice = ' '.join(indice), word_to_guess = ' '.join(word_to_guess))
+        return render_template("play.html", playername = playername, result = result, lifepoint = lifepoint, indice = indice, word_to_guess = word_to_guess)
 
 def reset_game():
     #Réinitialise les variables du jeu à leur valeur initial
-    global lifepoint, word_to_guess, indice, result   
+    global playername, list_of_words, lifepoint, word_to_guess, indice, playerguess, result 
     lifepoint = 5
     word_to_guess = get_random_word()
     indice = "_" * len(word_to_guess)
-    result = "Cliquez sur les lettres et trouvez le mot caché"
-    return render_template("play.html", playername = playername, result = result, lifepoint = lifepoint, indice = ' '.join(indice), word_to_guess = ' '.join(word_to_guess))
+    result = "Cliquer sur les lettres pour trouver le mot caché"
+    return render_template("play.html", playername = playername, result = result, lifepoint = lifepoint, indice = indice, word_to_guess = word_to_guess)
 
 app = Flask(__name__)
 @app.route("/")
@@ -118,7 +118,7 @@ def play():
         elif "replay" in request.form:
             return reset_game()
         else:
-            return render_template("play.html", playername = playername, result = result, lifepoint = lifepoint, indice = ' '.join(indice), word_to_guess = ' '.join(word_to_guess))
+            return render_template("play.html", playername = playername, result = result, lifepoint = lifepoint, indice = indice, word_to_guess = word_to_guess)
     
 
 #flask --app server run

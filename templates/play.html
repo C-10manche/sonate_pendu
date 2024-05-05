@@ -7,7 +7,7 @@
     <main class="wrapper">
         <h1>Jeu du Pendu</h1>
         <div class="align">
-        <h2 class="big">Utilisateur :</h2><h2 class="big space">{{playername}}</h2>
+        <p class="big">Utilisateur :</p><h2 class="space">{{playername}}</h2>
         </div>
         <br>    
         <div>
@@ -29,16 +29,27 @@
         </span>
         <div>
             <br>
-            <p>Instructions : </p>
             {% if result == "OUI !" %}
-                <p class="green">{{result}}</p>
+                <p class="green big">{{result}}</p>
             {% elif result == "NON !" %}
-                <p class="red">{{result}}</p>            
+                <p class="red big">{{result}}</p>            
             {% else %}
+                <p>Instructions : </p>
                 <p>"{{result}}"</p>
             {% endif %}
-
-            <h2>{{indice}}<br>{{word_to_guess}}</h2>
+            <h2>
+                {% for letter in indice %}                
+                    {% if letter != "_" %}
+                        <span class="indice white">{{ letter }}</span>
+                    {% else %}
+                        <span class="indice">{{ letter }}</span>
+                    {% endif %}
+                {% endfor %}
+                <!-- {% for letter in word_to_guess %}
+                   <span class="letter space">{{ letter }}</span>
+                {% endfor %} -->
+            </h2>
+            <br>
         </div>
         <div class="box letter">
             <form action="/play" method="post">
