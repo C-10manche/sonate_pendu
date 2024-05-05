@@ -246,7 +246,7 @@ input::placeholder{
 }
 
 .red {
-  color: rgba(214, 79, 56, 0.856);
+  color: rgba(255, 89, 59, 0.7);
 }
 
 .red:hover {
@@ -254,7 +254,7 @@ input::placeholder{
 }
 
 .green {
-  color: rgba(56, 214, 161, 0.856);
+  color: rgba(78, 255, 196, 0.7);
 }
 .green:hover {
   color: rgba(255, 255, 255, 0.856);
