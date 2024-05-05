@@ -10,14 +10,14 @@
             {% if lifepoint > 0 %}
                 <h2 class="green big">BRAVO !</h2> 
                 <div class="align">
-                    <h2 class="space"> Le mot à trouver était bien</h2> <h2 class="green big space">"{{word_to_guess.upper()}}"!</h2>
+                    <h2>&nbsp;Le mot à trouver était bien</h2>&nbsp;<h2 class="green big">"{{word_to_guess.upper()}}"!</h2>
                 </div>
                 <br>
                 <img class="pendu result-green" src="/static/images/gagner.gif">
             {% else %}
                 <h2 class="red big">PERDU !</h2>
                 <div class="align">
-                     <h2 class="space"> Le mot à trouver était</h2> <h2 class="red big space">"{{word_to_guess.upper()}}"!</h2>
+                     <h2>&nbsp;Le mot à trouver était</h2>&nbsp;<h2 class="red big">"{{word_to_guess.upper()}}"!</h2>
                 </div>
                 <br>
                 <img class="pendu result-red" src="/static/images/perdu.gif">
@@ -25,7 +25,6 @@
             <br><br>
             <div class="box menu align">
                 <form action="/play" method="post"><button type="submit" name = "replay">Rejouer</button></form>
-                <form action="/" method=""><button type="submit">Acceuil</button></form>
             </div>
         </main>
     </main>

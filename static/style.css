@@ -22,8 +22,7 @@ h1 {
   cursor: default;
   transition: all 1s ease 0.1s;
   text-shadow: 2px 0 0 #ffffff15, -2px 0 0 #ffffff15, 0 2px 0 #ffffff15, 0 -2px 0 #ffffff15, 1px 1px #ffffff15, -1px -1px 0 #ffffff15, 1px -1px 0 #ffffff15, -1px 1px 0 #ffffff15;
- }
- 
+ } 
 
 h1:hover{
   color: rgba(255, 255, 255, 0.9);
@@ -221,13 +220,13 @@ input::placeholder{
 .result-green{
   width: 25vh;
   height: 15vh;
-  border: 2px solid rgba(56, 214, 161, 0.514);
+  border: 2px solid rgba(78, 255, 196, 0.4);
  }
 
  .result-red{
   width: 20vh;
   height: 20vh;
-  border: 2px solid rgba(214, 80, 56, 0.61);
+  border: 2px solid rgba(214, 80, 56, 0.4);
  }
 
 .align {

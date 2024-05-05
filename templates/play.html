@@ -7,7 +7,6 @@
     <main class="wrapper">
         <h1>Jeu du Pendu</h1>
         <div class="align">
-        <p class="big">Utilisateur :</p><h2 class="space">{{playername}}</h2>
         </div>
         <br>    
         <div>
@@ -51,43 +50,14 @@
         </div>
         <div class="box letter">
             <form action="/play" method="post">
-                <button type="submit" name="playerguess" value="a">A</button>
-                <button type="submit" name="playerguess" value="b">B</button>
-                <button type="submit" name="playerguess" value="c">C</button>
-                <button type="submit" name="playerguess" value="d">D</button>
-                <button type="submit" name="playerguess" value="e">E</button>
-                <button type="submit" name="playerguess" value="f">F</button>
-                <br>
-                <button type="submit" name="playerguess" value="g">G</button>
-                <button type="submit" name="playerguess" value="h">H</button>
-                <button type="submit" name="playerguess" value="i">I</button>
-                <button type="submit" name="playerguess" value="j">J</button>
-                <button type="submit" name="playerguess" value="k">K</button>
-                <button type="submit" name="playerguess" value="l">L</button>
-                <br>
-                <button type="submit" name="playerguess" value="m">M</button>
-                <button type="submit" name="playerguess" value="n">N</button>
-                <button type="submit" name="playerguess" value="o">O</button>
-                <button type="submit" name="playerguess" value="p">P</button>
-                <button type="submit" name="playerguess" value="q">Q</button>
-                <button type="submit" name="playerguess" value="r">R</button>
-                <br>
-                <button type="submit" name="playerguess" value="s">S</button>
-                <button type="submit" name="playerguess" value="t">T</button>
-                <button type="submit" name="playerguess" value="u">U</button>
-                <button type="submit" name="playerguess" value="v">V</button>
-                <button type="submit" name="playerguess" value="w">W</button>
-                <button type="submit" name="playerguess" value="x">X</button>
-                <br>
-                <button type="submit" name="playerguess" value="y">Y</button>
-                <button type="submit" name="playerguess" value="z">Z</button>
-                <br>
+                {% for letter in "abcdefghijklmnopqrstuvwxyz"%}
+                    <button type="submit" name="playerguess" value="{{letter}}">{{letter.upper()}}</button>
+                    {% if loop.index % 6 == 0 %}
+                        <br>
+                    {% endif %}
+                {% endfor %}
             </form>
         </div>
-        <br>        
-        <div class="box menu align">
-            <form action="/play" method="post"><button type="submit" name = "replay">Rejouer</button></form>
-            <form action="/" method=""><button type="submit">Acceuil</button></form>
-        </div>
+        <br>
     </main>
 {% endblock %}
