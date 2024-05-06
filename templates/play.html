@@ -32,7 +32,7 @@
             {% elif result == "NON !" %}
                 <p class="red big">{{result}}</p>         
             {% else %}
-                <p>"{{result}}"</p>{{word_to_guess}}
+                <p>"{{result}}"</p>
             {% endif %}
             <br>
                 {% for letter in indice %}                
@@ -43,6 +43,7 @@
                     {% endif %}
                 {% endfor %}
             <br>
+            <h2>{{word_to_guess}}</h2>
             <br>
         </div>
         <div class="box letter">
