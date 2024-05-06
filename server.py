@@ -9,6 +9,7 @@ playerguess = ""
 result = ""
 list_of_words = []
 wrong_guess =[]
+good_guess =[]
 
 def open_dictionary(): 
     #On récupère chaque phrases du file dictionnaire.txt puis on récupère chaque premier mots
@@ -64,10 +65,10 @@ def continue_to_play_hangman():
     new_indice = []
     
     #Check si le joueur a deviné la lettre
-    if playerguess in remove_accent(indice) or playerguess in wrong_guess:
+    if playerguess in good_guess or playerguess in wrong_guess:
         #On a ajouté cette ligne pour éviter au joueur de perdre des points de vie si il refresh sa page
         result = "Vous avez déjà utilisé cette lettre !"           
-    elif playerguess in remove_accent(word_to_guess): 
+    elif playerguess in remove_accent(word_to_guess):
         result = "OUI !" 
         #Met à jour l'indice        
         for x in range(len(word_to_guess)):
@@ -76,6 +77,7 @@ def continue_to_play_hangman():
             else :
                 new_indice.append(indice[x])                    
         indice = "".join(new_indice)
+        good_guess.append(playerguess)
     else :
         result = "NON !"
         lifepoint -= 1
@@ -86,13 +88,14 @@ def continue_to_play_hangman():
     if lifepoint <= 0 or "_" not in indice :      
         return render_template("result.html", lifepoint = lifepoint, word_to_guess = word_to_guess)
     else :
-        return render_template("play.html", result = result, lifepoint = lifepoint, indice = indice, word_to_guess = word_to_guess, wrong_guess = wrong_guess)
+        return render_template("play.html", result = result, lifepoint = lifepoint, indice = indice, word_to_guess = word_to_guess, good_guess = good_guess, wrong_guess = wrong_guess)
 
 def reset_game():
     #Réinitialise les variables du jeu à leur valeur initial
     global list_of_words, lifepoint, word_to_guess, indice, playerguess, result, wrong_guess
     lifepoint = 5
     word_to_guess = get_random_word()
+    good_guess.clear()
     wrong_guess.clear()
     indice = "_" * len(word_to_guess)
     result = "Cliquer sur les lettres pour trouver le mot caché"

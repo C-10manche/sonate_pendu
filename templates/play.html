@@ -32,7 +32,7 @@
             {% elif result == "NON !" %}
                 <p class="red big">{{result}}</p>         
             {% else %}
-                <p>"{{result}}"</p>
+                <p>"{{result}}"</p>{{word_to_guess}}
             {% endif %}
             <br>
                 {% for letter in indice %}                
@@ -50,7 +50,7 @@
                 {% for letter in "abcdefghijklmnopqrstuvwxyz" %}
                     {% if letter in wrong_guess %}
                         <button class="red used" type="submit" name="playerguess" value="{{letter}}">{{letter.upper()}}</button>
-                    {% elif letter in indice %}                    
+                    {% elif letter in good_guess %}                    
                         <button class="green used" type="submit" name="playerguess" value="{{letter}}">{{letter.upper()}}</button>
                     {% else %}
                         <button type="submit" name="playerguess" value="{{letter}}">{{letter.upper()}}</button>
