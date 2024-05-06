@@ -81,7 +81,7 @@ def continue_to_play_hangman():
         wrong_guess.append(playerguess)
     
     playerguess = "0"
-    #Check si le jeu continue        
+    #Check si le jeu doit continuer     
     if lifepoint <= 0 or "_" not in indice :      
         return render_template("result.html", lifepoint = lifepoint, word_to_guess = word_to_guess)
     else :
@@ -104,8 +104,7 @@ def home():
 
 @app.route("/play", methods=["POST"])
 def play():
-    global playername, list_of_words
-    
+    global playername, list_of_words    
     #Gère les actions du joueur
     if request.method == "POST":
         if "playername" in request.form:
@@ -116,8 +115,6 @@ def play():
             return continue_to_play_hangman()
         elif "replay" in request.form:
             return reset_game()
-    
-    return render_template("play.html", result = result, lifepoint = lifepoint, indice = indice, word_to_guess = word_to_guess, wrong_guess = wrong_guess)
     
 
 #flask --app server run
